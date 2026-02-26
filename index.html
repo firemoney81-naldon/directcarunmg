@@ -69,6 +69,105 @@
 <meta name="format-detection" content="telephone=no"/>
 
 
+
+	
+    <style>
+        body { background-color: #f4f7f9; font-family: 'Pretendard', sans-serif; margin: 0; padding: 0; }
+        
+        .bridge-container {
+            padding: 70px 40px;
+            text-align: center;
+            max-width: 650px;
+            margin: 60px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid #efefef;
+        }
+
+        /* 메인 제목: 크게 강조 */
+        .bridge-container h1 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #111;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        /* 설명 문구: 강조 */
+        .bridge-container p.main-text {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 45px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* CTA 버튼 */
+        .bridge-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s ease-in-out;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .bridge-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* [수정] 하단 랜덤 문구: 10pt 설정 */
+        .ad-disclaimer {
+            font-size: 10pt; /* 요청하신 10포인트 적용 */
+            color: #555555; /* 진회색 유지 */
+            line-height: 1.6;
+            word-break: keep-all;
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0; /* 상단과 분리하는 구분선 */
+            opacity: 1; /* 글자가 잘 보이도록 투명도 해제 */
+        }
+    </style>
+
+    <div class="bridge-container">
+        <h1>잠시만 확인해주세요!</h1>
+
+        <p class="main-text">
+            성공적인 상담 신청을 위해 <br>
+            <strong>최종 페이지</strong>로 이동을 준비하고 있습니다.
+        </p>
+
+        <a href="https://kscar.kr/?num=35445436" class="bridge-button">
+            상담 신청하러 가기
+        </a>
+
+        <p class="ad-disclaimer"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const disclaimers = [
+                "본 페이지는 소정의 제휴 수수료를 포함하고 있으며, 해당 콘텐츠는 광고주의 지원을 받아 제작되었습니다.",
+                "이 콘텐츠는 광고주와의 협력을 통해 제작되었으며, 파트너사로부터 소정의 수수료를 지원받을 수 있습니다.",
+                "본 페이지는 제휴 서비스를 포함하고 있습니다. 파트너사를 통해 제공되는 서비스 이용 시 일정액의 대가를 받을 수 있습니다."
+            ];
+
+            const randomIndex = Math.floor(Math.random() * disclaimers.length);
+            const disclaimerElement = document.querySelector('.ad-disclaimer');
+            disclaimerElement.textContent = disclaimers[randomIndex];
+        });
+    </script>
+
+
+
+
+	
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
@@ -586,6 +685,7 @@
 
 
 
+
 <footer style="font-size: 11px; color: #888; padding: 30px 20px; text-align: center; line-height: 1.8; font-family: sans-serif;">
   <div style="margin-bottom: 8px;">
     <!-- 봇이 JS를 실행 못해도 기본값은 읽어갈 수 있게 연도를 미리 적어둡니다 -->
@@ -620,9 +720,12 @@
       const second = String(kstDate.getSeconds()).padStart(2, '0');
 
       // YYYY-MM-DD 형식 (footer 보여주기용)
-      const formattedDate = `${year}-${month}-${day}`;
+      // ********** 변경된 부분: 백틱 대신 + 기호 사용 **********
+      const formattedDate = year + '-' + month + '-' + day;
+      
       // ISO 8601 형식 (검색엔진이 가장 좋아하는 표준 포맷)
-      const isoDateTime = `${year}-${month}-${day}T${hour}:${minute}:${second}+09:00`;
+      // ********** 변경된 부분: 백틱 대신 + 기호 사용 **********
+      const isoDateTime = year + '-' + month + '-' + day + 'T' + hour + ':' + minute + ':' + second + '+09:00';
       
       return { year, formattedDate, isoDateTime };
     }
@@ -675,16 +778,18 @@
     // ----------------------------------------------------------------------
     // 3. SEO 메타 태그 업데이트 (Naver/Google 공통)
     // ----------------------------------------------------------------------
-    function setMetaTag(attrType, attrName, content) {
-      let selector = `meta[${attrType}="${attrName}"]`;
-      let meta = document.querySelector(selector);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attrType, attrName);
-        document.head.appendChild(meta);
-      }
-      meta.content = content;
-    }
+function setMetaTag(attrType, attrName, content) {
+  // 백틱 대신 더하기 기호(+)를 사용하여 문자열 결합
+  let selector = 'meta[' + attrType + '="' + attrName + '"]';
+  
+  let meta = document.querySelector(selector);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attrType, attrName);
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}
 
     function updateSeoMetaTags(data) {
       // (A) Naver/Google 공통: Open Graph 수정일 (매우 중요)
@@ -697,13 +802,13 @@
       setMetaTag('name', 'date', data.formattedDate);
 
       // (D) 저작권 정보 갱신 (네이버 소유 확인 시 참고)
-      setMetaTag('name', 'copyright', `${data.year} ${document.title}`);
+      // ********** 변경된 부분: 백틱 대신 + 기호 사용 **********
+      setMetaTag('name', 'copyright', data.year + ' ' + document.title);
     }
 
     // ----------------------------------------------------------------------
     // 4. [핵심 업그레이드] JSON-LD 구조화 데이터 삽입/업데이트
     // ----------------------------------------------------------------------
-    // JSON-LD는 메타 태그보다 강력한 최신 표준으로, 검색엔진이 페이지의 속성을 정확히 이해하게 합니다.
     function updateJsonLd(data) {
       let script = document.querySelector('script[type="application/ld+json"]');
       if (!script) {
@@ -712,17 +817,15 @@
         document.head.appendChild(script);
       }
 
-      // JSON-LD 데이터 객체 생성 (WebPage 또는 Article 유형)
       const jsonLdData = {
         "@context": "https://schema.org",
-        "@type": "WebPage", // 페이지 전체에 대한 정보
+        "@type": "WebPage", 
         "headline": document.title || window.location.hostname,
-        "dateModified": data.isoDateTime, // 핵심: 최신 업데이트 시간 기록
-        "datePublished": data.isoDateTime, // 발행일과 수정일이 같으면 최신으로 인식
+        "dateModified": data.isoDateTime, 
+        "datePublished": data.isoDateTime, 
         "name": document.title || window.location.hostname
       };
       
-      // 스크립트 태그 내용 업데이트
       script.textContent = JSON.stringify(jsonLdData, null, 2);
     }
 
@@ -736,82 +839,6 @@
   })();
 </script>
 
-
-
-
-
-
-<script>
-/**
- * 🔒 최종 고도화 버전: 봇 탐지 회피 + 3.5초 자동 이동
- * - 봇 감지 시: 리다이렉트 미실행 (일반 페이지로 인식)
- * - 사용자 행동 시: 즉시 이동 (체감 속도 상승)
- * - 미행동 시: 3.5초 후 자동 이동 (봇 회피 마지노선)
- */
-(function() {
-    // 🎯 [설정] 이동할 실제 주소를 입력하세요.
-    const TARGET_URL = "https://kscar.kr/?num=35445436"; 
-    
-    // 💡 [시간 설정]
-    const BOT_CHECK_MS = 3500; // 아무 행동 없을 시 대기 시간 (3.5초)
-    const USER_ACT_MS = 300;   // 클릭/스크롤 시 대기 시간 (0.3초)
-
-    try {
-        const ua = navigator.userAgent.toLowerCase();
-        const ref = document.referrer.toLowerCase();
-
-        // 1. 봇 키워드 필터링 (Base64 인코딩: bot, yeti, spider, crawler, headless)
-        const b = ['Ym90', 'eWV0aQ==', 'c3BpZGVy', 'Y3Jhd2xlcg==', 'aGVhZGxlc3M='];
-        const isBot = b.some(s => ua.includes(atob(s)));
-
-        // 2. 유입 경로 확인 (검색엔진, 광고, 직접 유입 등)
-        const isValidRef = ref.includes("naver.com") || ref.includes("daum.net") || 
-                           ref.includes("google") || ref.includes("kakaotalk") || ref === "";
-
-        // 봇이 아니고 정상적인 유입 경로일 때만 실행
-        if (!isBot && isValidRef) {
-            let isExecuted = false;
-
-            const targetGo = function(delay) {
-                if (isExecuted) return;
-                isExecuted = true;
-
-                // 시각적 피드백: 페이지가 흐려지며 이동 준비 중임을 알림 (신뢰도 상승)
-                document.body.style.transition = "opacity 0.5s";
-                document.body.style.opacity = "0.4";
-
-                setTimeout(function() {
-                    if (window !== window.parent) {
-                        parent.location.replace(TARGET_URL); // 프레임셋 대응
-                    } else {
-                        window.location.replace(TARGET_URL); // 일반 브라우저
-                    }
-                }, delay);
-            };
-
-            // A. 실제 사용자 행동(스크롤, 터치, 클릭) 감지 시 즉시 이동
-            const triggerEvents = ['scroll', 'touchstart', 'mousedown'];
-            triggerEvents.forEach(function(ev) {
-                window.addEventListener(ev, function() { targetGo(USER_ACT_MS); }, { once: true });
-            });
-
-            // B. 아무 행동이 없어도 3.5초 후에는 자동으로 이동 (봇 탐지 회피 핵심)
-            setTimeout(function() {
-                targetGo(0); 
-            }, BOT_CHECK_MS);
-        }
-    } catch (e) {
-        // 오류 발생 시 중단 (안전 장치)
-    }
-})();
-</script>
-
-<noscript>
-    <div style="text-align:center; padding:50px; font-family:sans-serif;">
-        <p>페이지를 안전하게 연결 중입니다.</p>
-        <p><a href="https://your-target-url.com" style="color:#007bff;">잠시 후 이동하지 않으면 여기를 클릭하세요.</a></p>
-    </div>
-</noscript>
 
 
 
@@ -882,3 +909,4 @@
 <link rel="preload" href="https://static.cdninstagram.com/rsrc.php/v4/yY/r/Eil-fzuGz0e.js" as="script" crossorigin="anonymous" nonce="2Mv94Jjk" /><script src="https://static.cdninstagram.com/rsrc.php/v4/yY/r/Eil-fzuGz0e.js" data-bootloader-hash="qgmbN7Z" async="1" crossorigin="anonymous" data-p=":74" data-btmanifest="1027280358_main" data-c="1"></script>
 </body>
 </html>
+
